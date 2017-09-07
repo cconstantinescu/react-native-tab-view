@@ -210,12 +210,8 @@ export default class TabViewPagerPan<T: Route<*>>
     const currentIndex = this.props.navigationState.index;
     const currentValue = this.props.getLastPosition();
     if (currentValue !== currentIndex) {
-      if (this._isMoving && !this._isReverseDirection(gestureState)) {
-        const nextIndex = this._getNextIndex(evt, gestureState);
+      const nextIndex = this._getNextIndex(evt, gestureState);
         this._transitionTo(nextIndex);
-      } else {
-        this._transitionTo(currentIndex);
-      }
     }
     this._lastValue = null;
     this._isMoving = null;
